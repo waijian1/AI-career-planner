@@ -33,7 +33,7 @@ def search_job(query, page=1):
         jobs.append({
             "title": job.get("job_title"),
             "company": job.get("employer_name"),
-            "country": job.get("job_country"),
+            # "country": job.get("job_country"),
             "description": job.get("job_description")
         })
 
