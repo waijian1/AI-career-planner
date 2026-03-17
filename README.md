@@ -1,177 +1,194 @@
-🚀 AI Career Planner
+# 🚀 AI Career Planner
 
-An AI-powered tool that helps you analyze real job market demands in your country and generate a personalized study plan for your target career.
+> An AI-powered tool that analyzes real job market demands and generates a personalized study plan for your target career.
 
-This project uses live job data + AI to guide what you should learn — instead of guessing.
+**Stop guessing what to learn.** This project uses live job data + AI to tell you exactly what skills are in demand — then builds you a roadmap to get there.
 
-📌 Overview
+---
 
-Many learners struggle with:
+## 📌 The Problem
 
-❓ What skills to learn
+Most learners struggle with three things:
 
-❓ Whether those skills are actually in demand
+- ❓ **What** skills to learn for a target career
+- ❓ **Whether** those skills are actually in demand right now
+- ❓ **How** to structure a learning roadmap that makes sense
 
-❓ How to structure a learning roadmap
+---
 
-This project solves that by:
+## 💡 The Solution
 
-Extracting real job data from the market (Your Country)
+AI Career Planner tackles this by:
 
-Identifying in-demand skills
+1. **Fetching real job listings** from the live market (configurable by country)
+2. **Identifying in-demand skills** from actual job descriptions
+3. *(Planned)* **Generating a custom AI-driven study plan** tailored to skill gaps
 
-(Planned) Generating a custom AI-driven study plan
+---
 
-✨ Features
-🔍 Job Search API Integration
+## ✨ Features
 
-Uses JSearch (RapidAPI) to fetch real job listings
+### 🔍 Live Job Search (via JSearch / RapidAPI)
+- Fetches real job listings filtered by role and location
+- Configurable filters: country, date range (e.g. posted within last week)
+- Extracts: job title, company name, full job description
 
-Filters:
+### 📊 Structured Data Extraction
+Converts raw API responses into clean, usable Python objects:
 
-📍 Country: Can be change based on your preference
-
-📅 Posted within last week (can be change based on your preference)
-
-Extracts:
-
-Job title
-
-Company name
-
-Job description
-
-📊 Structured Job Data Extraction
-
-Converts raw API response into clean Python objects:
-
+```json
 {
-    "title": "Machine Learning Engineer",
-    "company": "Company Name",
-    "description": "Job description text..."
+  "title": "Machine Learning Engineer",
+  "company": "Company Name",
+  "description": "Job description text..."
 }
-🧠 (Planned) AI Career Intelligence
+```
 
-Analyze job descriptions to extract:
+### 🧠 AI Career Intelligence *(Planned)*
+- Extracts skills (Python, SQL, ML, etc.) and tools (Docker, AWS, etc.) from job descriptions
+- Identifies most demanded skills and your personal skill gaps
 
-Skills (Python, SQL, ML, etc.)
+### 📚 Study Plan Generator *(Planned)*
+- Generates a step-by-step learning roadmap
+- Prioritizes skills by market demand
+- Suggests projects to build along the way
 
-Tools (Docker, AWS, etc.)
+---
 
-Identify:
+## 🏗️ Tech Stack
 
-Most demanded skills
+| Tool | Purpose |
+|------|---------|
+| Python | Core language |
+| Requests | API calls |
+| RapidAPI (JSearch) | Live job listings |
+| python-dotenv | Environment/key management |
+| Google Gemini API | AI analysis *(planned)* |
 
-Skill gaps
+---
 
-📚 (Planned) Study Plan Generator
+## ⚙️ How It Works
 
-Generate:
+```
+User query (e.g. "machine learning engineer in singapore")
+        ↓
+  JSearch API call
+        ↓
+  Extract: title, company, description
+        ↓
+  Structured job dataset
+        ↓
+  (Planned) AI skill extraction → study plan
+```
 
-Step-by-step roadmap
+---
 
-Learning priorities
+## 📂 Project Structure
 
-Project suggestions
-
-🏗️ Tech Stack
-
-Python
-
-Requests (API calls)
-
-RapidAPI (JSearch)
-
-dotenv (environment management)
-
-⚙️ How It Works
-
-User specifies a job query
-Example:
-
-machine learning engineer in singapore
-
-System calls JSearch API
-
-Extracts key job information:
-
-Title
-
-Company
-
-Description
-
-Returns structured job dataset for further analysis
-
-📂 Project Structure
+```
 AI-career-planner/
 │
 ├── jobsearchapi.py     # Fetches job data from RapidAPI (JSearch)
-├── main.ipynb          # Experimentation / analysis notebook
+├── main.ipynb          # Experimentation & analysis notebook
 ├── .env                # API keys (not committed)
 └── README.md
+```
 
-🚀 Getting Started
-1. Clone the repo
+---
+
+## 🚀 Getting Started
+
+### 1. Clone the repo
+
+```bash
 git clone https://github.com/waijian1/AI-career-planner.git
 cd AI-career-planner
-2. Install dependencies
+```
+
+### 2. Install dependencies
+
+```bash
 uv sync
-3. Set up API key
+```
 
-Create a .env file:
+### 3. Set up API keys
 
+Create a `.env` file in the project root:
+
+```env
 X_RAPID_API_KEY=your_rapidapi_key
 GOOGLE_API_KEY=your_google_api_key
-4. Test the script
-uv run jobsearchapi.py
-5. Run LLM to generate career plan
-main.ipynb
+```
 
-📊 Example Usage
+> 🔑 Get your RapidAPI key at [rapidapi.com](https://rapidapi.com) — search for **JSearch**.
+
+### 4. Run the job search script
+
+```bash
+uv run jobsearchapi.py
+```
+
+### 5. Explore in the notebook
+
+Open `main.ipynb` to run LLM-powered analysis and generate a career plan.
+
+---
+
+## 📊 Example Usage
+
+```python
 from jobsearchapi import search_job
 
 jobs = search_job("machine learning engineer in singapore")
-
 print(jobs[:2])
-📈 Example Output
+```
+
+**Output:**
+
+```json
 [
   {
     "title": "Machine Learning Engineer",
     "company": "ABC Company",
-    "description": "We are looking for..."
+    "description": "We are looking for a skilled ML engineer..."
   },
   ...
 ]
+```
 
-🔮 Roadmap (Next Steps)
+---
 
- Extract skills using NLP / LLM
+## 🔮 Roadmap
 
- Aggregate most in-demand skills
+- [x] Job search API integration
+- [x] Structured data extraction
+- [ ] Skill extraction using NLP / LLM
+- [ ] Aggregate most in-demand skills
+- [ ] Generate personalized study plans
+- [ ] Build Streamlit UI
+- [ ] Deploy as a web app
 
- Generate personalized study plans
+---
 
- Build Streamlit UI
+## 📜 License
 
- Deploy as a web app
+This project is licensed under the [MIT License](LICENSE).
 
+---
 
-📜 License
+## 👨‍💻 Author
 
-MIT License
+**Lim Wai Jian**
+GitHub: [@waijian1](https://github.com/waijian1)
 
-👨‍💻 Author
+---
 
-Lim Wai Jian
-GitHub: https://github.com/waijian1
+## ⭐ Support
 
-⭐ Support
+If you find this useful, please consider:
 
-If you find this useful:
+- Starring ⭐ the repo
+- Sharing it with others
+- Contributing improvements via pull requests
 
-Star ⭐ the repo
-
-Share it with others
-
-Contribute improvements 🚀
+Every bit of support helps keep the project going! 🚀
