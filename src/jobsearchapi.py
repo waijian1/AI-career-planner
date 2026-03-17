@@ -14,13 +14,13 @@ HEADERS = {
     "X-RapidAPI-Host": "jsearch.p.rapidapi.com"
 }
 
-def search_job(query, page=1):
+def search_job(query, num_pages=5):
     params = {
         "query": query,
-        "page": str(page),
-        "num_pages": "1",
+        "page": "1",
+        "num_pages": str(num_pages),
         "country": "sg",
-        "date_posted": "all"
+        "date_posted": "week"
     }
 
     response = requests.get(API_URL, headers=HEADERS, params=params)
