@@ -165,7 +165,7 @@ print(jobs[:2])
 - [ ] Skill extraction using NLP / LLM
 - [ ] Aggregate most in-demand skills
 - [ ] Generate personalized study plans
-- [ ] Build Streamlit UI
+- [ ] Build Gradio UI
 - [ ] Deploy as a web app
 
 ---
