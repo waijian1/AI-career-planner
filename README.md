@@ -22,7 +22,7 @@ AI Career Planner tackles this by:
 
 1. **Fetching real job listings** from the live market (configurable by country)
 2. **Identifying in-demand skills** from actual job descriptions
-3. *(Planned)* **Generating a custom AI-driven study plan** tailored to skill gaps
+3. **Generating a custom AI-driven study plan** tailored to skill gaps
 
 ---
 
@@ -41,6 +41,7 @@ Converts raw API responses into clean, usable Python objects:
   "title": "Machine Learning Engineer",
   "company": "Company Name",
   "description": "Job description text..."
+  ...
 }
 ```
 
@@ -74,24 +75,11 @@ User query (e.g. "machine learning engineer in singapore")
         ↓
   JSearch API call
         ↓
-  Extract: title, company, description
+  Extract: title, company, company website, job apply link, description
         ↓
   Structured job dataset
         ↓
   (Planned) AI skill extraction → study plan
-```
-
----
-
-## 📂 Project Structure
-
-```
-AI-career-planner/
-│
-├── jobsearchapi.py     # Fetches job data from RapidAPI (JSearch)
-├── main.ipynb          # Experimentation & analysis notebook
-├── .env                # API keys (not committed)
-└── README.md
 ```
 
 ---
@@ -122,39 +110,13 @@ GOOGLE_API_KEY=your_google_api_key
 
 > 🔑 Get your RapidAPI key at [rapidapi.com](https://rapidapi.com) — search for **JSearch**.
 
-### 4. Run the job search script
+### 4. Run the Gradio App
 
 ```bash
-uv run jobsearchapi.py
+uv run -m ai_career_planner
 ```
 
-### 5. Explore in the notebook
-
-Open `main.ipynb` to run LLM-powered analysis and generate a career plan.
-
----
-
-## 📊 Example Usage
-
-```python
-from jobsearchapi import search_job
-
-jobs = search_job("machine learning engineer in singapore")
-print(jobs[:2])
-```
-
-**Output:**
-
-```json
-[
-  {
-    "title": "Machine Learning Engineer",
-    "company": "ABC Company",
-    "description": "We are looking for a skilled ML engineer..."
-  },
-  ...
-]
-```
+### 5. Enjoy your career planning with the Gradio App !
 
 ---
 
