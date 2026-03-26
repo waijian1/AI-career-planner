@@ -147,4 +147,8 @@ view = gr.Interface(
     flagging_mode="never"
 )
 
-view.launch(inbrowser=True)
+view.launch(
+    inbrowser=True, 
+    # auth=(os.getenv('GRADIO_ID'),os.getenv('GRADIO_PW')),
+    # share=True
+)
