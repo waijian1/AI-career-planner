@@ -5,6 +5,7 @@
 **Stop guessing what to learn.** This project uses live job data + AI to tell you exactly what skills are in demand — then builds you a roadmap to get there.
 
 ---
+![ai-career-planner](assets/ai-career-planner-demo.png)
 
 ## 📌 The Problem
 
@@ -45,11 +46,10 @@ Converts raw API responses into clean, usable Python objects:
 }
 ```
 
-### 🧠 AI Career Intelligence *(Planned)*
-- Extracts skills (Python, SQL, ML, etc.) and tools (Docker, AWS, etc.) from job descriptions
+### 🧠 AI Career Intelligence
 - Identifies most demanded skills and your personal skill gaps
 
-### 📚 Study Plan Generator *(Planned)*
+### 📚 Study Plan Generator
 - Generates a step-by-step learning roadmap
 - Prioritizes skills by market demand
 - Suggests projects to build along the way
@@ -64,7 +64,7 @@ Converts raw API responses into clean, usable Python objects:
 | Requests | API calls |
 | RapidAPI (JSearch) | Live job listings |
 | python-dotenv | Environment/key management |
-| Google Gemini API | AI analysis *(planned)* |
+| Google Gemini API | AI analysis |
 
 ---
 
@@ -79,7 +79,7 @@ User query (e.g. "machine learning engineer in singapore")
         ↓
   Structured job dataset
         ↓
-  (Planned) AI skill extraction → study plan
+  AI provide study plan based on current market demand
 ```
 
 ---
@@ -124,11 +124,10 @@ uv run -m ai_career_planner
 
 - [x] Job search API integration
 - [x] Structured data extraction
-- [ ] Skill extraction using NLP / LLM
-- [ ] Aggregate most in-demand skills
-- [ ] Generate personalized study plans
+- [x] Aggregate most in-demand skills
+- [x] Generate personalized study plans
 - [x] Build Gradio UI
-- [ ] Deploy as a web app
+- [x] Deploy as a web app
 
 ---
 
